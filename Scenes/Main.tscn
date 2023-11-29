@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://buelks7xwvib4"]
+[gd_scene load_steps=2 format=3 uid="uid://buelks7xwvib4"]
+
+[ext_resource type="PackedScene" uid="uid://dcnje0avp7wuh" path="res://Scenes/Bard.tscn" id="1_y0xy2"]
 
 [node name="Main" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1411.0
+offset_bottom = 920.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bard" parent="." instance=ExtResource("1_y0xy2")]
+position = Vector2(121, 135)
