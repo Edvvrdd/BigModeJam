@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://di4iak8eo2dsh"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_qxu5f"]
+
+[node name="GuitarAudio" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_qxu5f")
