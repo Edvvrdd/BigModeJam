@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://denuorbu0qlsk"]
+
+[ext_resource type="Script" path="res://Scripts/Mandolin.gd" id="1_5pr1r"]
+[ext_resource type="Texture2D" uid="uid://c4ye3tl15h81i" path="res://Images/MandolinBG.png" id="2_wfsn2"]
+[ext_resource type="Texture2D" uid="uid://sdo4r6wr26wc" path="res://Images/GuitarString.png" id="3_dmewy"]
+[ext_resource type="Texture2D" uid="uid://tafhxcsbm027" path="res://Images/GuitarStringVibe.png" id="4_hqta3"]
+[ext_resource type="Script" path="res://Scripts/stringA.gd" id="5_1wt3n"]
+[ext_resource type="PackedScene" uid="uid://bdjf770acbwm1" path="res://Scenes/notes.tscn" id="6_6hkmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj8a2"]
+atlas = ExtResource("3_dmewy")
+region = Rect2(21, 0, 21, 989)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5c3b"]
+atlas = ExtResource("4_hqta3")
+region = Rect2(2, 0, 39, 990)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syj7u"]
+atlas = ExtResource("4_hqta3")
+region = Rect2(41, 0, 39, 990)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbpxi"]
+atlas = ExtResource("4_hqta3")
+region = Rect2(80, 0, 39, 990)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhqvu"]
+atlas = ExtResource("4_hqta3")
+region = Rect2(119, 0, 39, 990)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yxxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj8a2")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5c3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syj7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbpxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhqvu")
+}],
+"loop": true,
+"name": &"vibe",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jclt"]
+radius = 18.6691
+
+[node name="Mandolin" type="Node2D"]
+script = ExtResource("1_5pr1r")
+
+[node name="BGImage" type="Sprite2D" parent="."]
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("2_wfsn2")
+
+[node name="stringA" type="AnimatedSprite2D" parent="."]
+position = Vector2(-41, -86)
+scale = Vector2(0.645, 0.645)
+sprite_frames = SubResource("SpriteFrames_1yxxn")
+animation = &"still"
+script = ExtResource("5_1wt3n")
+
+[node name="Area2D" type="Area2D" parent="stringA"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stringA/Area2D"]
+position = Vector2(-1.55039, 417.054)
+shape = SubResource("CircleShape2D_2jclt")
+
+[node name="Notes" parent="." instance=ExtResource("6_6hkmw")]
+position = Vector2(-45, -440)
