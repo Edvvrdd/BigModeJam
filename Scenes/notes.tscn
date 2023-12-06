@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdjf770acbwm1"]
+[gd_scene load_steps=5 format=3 uid="uid://bdjf770acbwm1"]
 
 [ext_resource type="Script" path="res://Scripts/notes.gd" id="1_716gq"]
 [ext_resource type="Texture2D" uid="uid://ca6x5dxdkxjot" path="res://Images/icon.svg" id="1_tsk7x"]
+[ext_resource type="AudioStream" uid="uid://dtqkuamoxuefw" path="res://Audio/Heal Jingle.mp3" id="3_ub5ll"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwfxn"]
 radius = 72.7273
 
 [node name="Notes" type="Node2D"]
 script = ExtResource("1_716gq")
+Speed = 150.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Note1" type="Sprite2D" parent="."]
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("1_tsk7x")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
+[node name="Area2D" type="Area2D" parent="Note1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note1/Area2D"]
 shape = SubResource("CircleShape2D_pwfxn")
+
+[node name="Line1" type="Sprite2D" parent="."]
+position = Vector2(0, 262)
+scale = Vector2(1, 0.0546875)
+texture = ExtResource("1_tsk7x")
+
+[node name="Line2" type="Sprite2D" parent="."]
+position = Vector2(0, 182)
+scale = Vector2(1, 0.0546875)
+texture = ExtResource("1_tsk7x")
+
+[node name="Line3" type="Sprite2D" parent="."]
+position = Vector2(0, 98)
+scale = Vector2(1, 0.0546875)
+texture = ExtResource("1_tsk7x")
+
+[node name="Line4" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+scale = Vector2(1, 0.0546875)
+texture = ExtResource("1_tsk7x")
+
+[node name="SongHolder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ub5ll")

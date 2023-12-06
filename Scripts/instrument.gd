@@ -1,6 +1,5 @@
 extends Node
 
-
 var instrument_name: String = "Unnamed Instrument"
 var keys = [] # Array to store the keys for the instrument
 

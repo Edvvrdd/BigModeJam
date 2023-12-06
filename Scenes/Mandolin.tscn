@@ -79,7 +79,7 @@ position = Vector2(-1.55039, 417.054)
 shape = SubResource("CircleShape2D_2jclt")
 
 [node name="Notes" parent="." instance=ExtResource("6_6hkmw")]
-position = Vector2(-42, 3)
+position = Vector2(-42, -134)
 
 [connection signal="animation_finished" from="stringA" to="." method="_on_string_a_animation_finished"]
 [connection signal="area_entered" from="stringA/Akey" to="." method="_on_akey_area_entered"]
