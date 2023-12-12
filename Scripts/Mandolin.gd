@@ -9,15 +9,15 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("move_left") and AkeyReady == true:  #A key
 		aStringHit()
 		
 		
-func _on_akey_area_entered(area):
+func _on_akey_area_entered(_area):
 	AkeyReady = true
 	
-func _on_akey_area_exited(area):
+func _on_akey_area_exited(_area):
 	print("note exited")
 	AkeyReady = false
 

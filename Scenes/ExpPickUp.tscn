@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwukdv6ojicd"]
+
+[ext_resource type="Texture2D" uid="uid://bbxga75k0r6ed" path="res://Images/PickUp.png" id="1_b34vm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns6tn"]
+
+[node name="ExpPickUp" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.4, 6.52)
+shape = SubResource("CircleShape2D_ns6tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b34vm")

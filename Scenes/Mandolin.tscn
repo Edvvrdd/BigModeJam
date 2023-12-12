@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://denuorbu0qlsk"]
 
 [ext_resource type="Script" path="res://Scripts/Mandolin.gd" id="1_5pr1r"]
-[ext_resource type="Texture2D" uid="uid://c4ye3tl15h81i" path="res://Images/MandolinBG.png" id="2_wfsn2"]
-[ext_resource type="Texture2D" uid="uid://sdo4r6wr26wc" path="res://Images/GuitarString.png" id="3_dmewy"]
-[ext_resource type="Texture2D" uid="uid://tafhxcsbm027" path="res://Images/GuitarStringVibe.png" id="4_hqta3"]
+[ext_resource type="Texture2D" uid="uid://c4ye3tl15h81i" path="res://Images/Instruments/MandolinBG.png" id="2_wfsn2"]
+[ext_resource type="Texture2D" uid="uid://sdo4r6wr26wc" path="res://Images/Instruments/GuitarString.png" id="3_dmewy"]
+[ext_resource type="Texture2D" uid="uid://tafhxcsbm027" path="res://Images/Instruments/GuitarStringVibe.png" id="4_hqta3"]
 [ext_resource type="PackedScene" uid="uid://bdjf770acbwm1" path="res://Scenes/notes.tscn" id="6_6hkmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj8a2"]

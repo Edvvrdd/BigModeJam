@@ -1,17 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcnje0avp7wuh"]
+[gd_scene load_steps=6 format=3 uid="uid://dcnje0avp7wuh"]
 
 [ext_resource type="Script" path="res://Scripts/Bard.gd" id="1_jov5j"]
+[ext_resource type="Texture2D" uid="uid://b5x1g4sd8mwk0" path="res://Images/Characters/Bard1.png" id="2_0k0lt"]
+[ext_resource type="Texture2D" uid="uid://bifkqdlobpoff" path="res://Images/Characters/Bard2.png" id="3_xfoki"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_t47au"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7njs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0k0lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xfoki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64b5c"]
+size = Vector2(64, 112)
 
 [node name="Bard" type="CharacterBody2D"]
 script = ExtResource("1_jov5j")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(3.38813e-21, -12)
-scale = Vector2(23.5, 23.5)
-mesh = SubResource("QuadMesh_t47au")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11.5)
+sprite_frames = SubResource("SpriteFrames_k7njs")
+autoplay = "default"
+frame_progress = 0.431381
+speed_scale = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_64b5c")

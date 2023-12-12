@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3tdu75bfrx8"]
+
+[ext_resource type="Script" path="res://Scenes/Start Menu.gd" id="1_572qq"]
+[ext_resource type="Texture2D" uid="uid://cj4owcngquc3m" path="res://Images/MENU.png" id="1_ri3cc"]
+[ext_resource type="AudioStream" uid="uid://77qk2s7x5ucd" path="res://Audio/menu music.mp3" id="3_78mps"]
+[ext_resource type="PackedScene" uid="uid://bktxcvt2s2748" path="res://Scenes/Options.tscn" id="3_sw6sx"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_572qq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ri3cc")
+
+[node name="Start Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 280.0
+offset_right = 546.0
+offset_bottom = 311.0
+scale = Vector2(4.09318, 2.23896)
+text = "Start"
+
+[node name="OptionButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 406.0
+offset_right = 587.0
+offset_bottom = 437.0
+scale = Vector2(2.16427, 1.6193)
+text = "Options"
+
+[node name="OptionsPanel" parent="." instance=ExtResource("3_sw6sx")]
+visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_78mps")
+autoplay = true
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

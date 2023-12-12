@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bktxcvt2s2748"]
+
+[ext_resource type="Script" path="res://Scenes/OptionsPanel.gd" id="1_db2fa"]
+[ext_resource type="Texture2D" uid="uid://ca6x5dxdkxjot" path="res://Images/icon.svg" id="1_ljd18"]
+[ext_resource type="AudioStream" uid="uid://kuwqvgv50s53" path="res://Audio/PP_Collect_Coin_1_1.wav" id="3_coa7e"]
+
+[node name="OptionsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_db2fa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 200
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_ljd18")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXvolume" type="HSlider" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Exit"
+
+[node name="sfxSample" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_coa7e")
+bus = &"SFX"
+
+[connection signal="value_changed" from="MarginContainer/MarginContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="drag_ended" from="MarginContainer/MarginContainer/VBoxContainer/SFXvolume" to="." method="_on_sf_xvolume_drag_ended"]
+[connection signal="value_changed" from="MarginContainer/MarginContainer/VBoxContainer/SFXvolume" to="." method="_on_sf_xvolume_value_changed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
